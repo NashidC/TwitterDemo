@@ -48,7 +48,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let requestToken = BDBOAuth1Credential(queryString: url.query)
         let twitterClient = BDBOAuth1SessionManager (baseURL: NSURL(string: "https://api.twitter.com")!, consumerKey: "2UcS54UaHd38ZjgUkPYXo4ji2", consumerSecret: "U5K3w3Iy4gjjShjDffR396yxAsdI9RhPcOkVoqkMzjUzMHUJpY")
         
-        twitterClient.fetchAccessTokenWithPath(<#T##accessPath: String!##String!#>, method: <#T##String!#>, requestToken: <#T##BDBOAuth1Credential!#>, success: <#T##((BDBOAuth1Credential!) -> Void)!##((BDBOAuth1Credential!) -> Void)!##(BDBOAuth1Credential!) -> Void#>, failure: <#T##((NSError!) -> Void)!##((NSError!) -> Void)!##(NSError!) -> Void#>)
+        twitterClient.fetchAccessTokenWithPath("oauth/access_token", method: "POST", requestToken: requestToken, success: { (accessToken:BDBOAuth1Credential!) -> Void in
+            print("I got the access token!")
+            
+            twitterClient.GET("1.1/account/verify_credentials.json",parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                print ("account: \(response)")
+                }, failure: { (task:NSURLSessionDataTask?, NSError) -> Void in
+            })
+            
+            
+            })  { (error:NSError!) -> Void in
+                print ("error: \(error.localizedDescription)")
+            }
         
         
         
