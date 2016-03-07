@@ -36,6 +36,20 @@ class TwitterClient: BDBOAuth1SessionManager {
     
     }
 
+    func handleOpenUrl(url: NSURL){
+        let requestToken = BDBOAuth1Credential(queryString: url.query)
+        fetchAccessTokenWithPath("oauth/access_token", method: "POST", requestToken: requestToken, success: { (accessToken:BDBOAuth1Credential!) -> Void in
+            
+            self.loginSuccess?()
+            
+            })  { (error:NSError!) -> Void in
+                    print("error: \(error.localizedDescription)")
+                    self.loginFailure?(error)
+        }
+
+    
+    }
+    
     func homeTimeline(success: ([Tweet])->(), failure: (NSError)-> ()){
         
         
