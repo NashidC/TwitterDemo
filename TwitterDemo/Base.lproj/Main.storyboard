@@ -55,7 +55,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="140" id="ayz-Vs-tgy" userLabel="TweetCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetCell" rowHeight="140" id="ayz-Vs-tgy" userLabel="TweetCell" customClass="TweetCell" customModule="TwitterDemo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="320" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ayz-Vs-tgy" id="jn6-i6-08O">
@@ -104,13 +104,30 @@
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ba-Bl-cci" userLabel="Retweet Button">
                                                     <rect key="frame" x="149" y="110" width="22" height="22"/>
                                                     <state key="normal" title="Button" image="retweet-action-gray.png"/>
+                                                    <connections>
+                                                        <action selector="retweetAction:" destination="ayz-Vs-tgy" eventType="touchUpInside" id="GzV-cZ-g6e"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ry0-IC-6YE" userLabel="Like Button">
                                                     <rect key="frame" x="233" y="106" width="25" height="29"/>
                                                     <state key="normal" title="Button" image="like-action-gray.png"/>
+                                                    <connections>
+                                                        <action selector="favoritedAction:" destination="ayz-Vs-tgy" eventType="touchUpInside" id="enU-5P-Z0v"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="likeButton" destination="Ry0-IC-6YE" id="kXE-8R-yFr"/>
+                                            <outlet property="likeCountLabel" destination="wRH-1I-uct" id="nio-iR-nTt"/>
+                                            <outlet property="profileView" destination="Y6d-Fx-5gK" id="isN-3u-oW7"/>
+                                            <outlet property="retweetButton" destination="7Ba-Bl-cci" id="pQn-aR-ySh"/>
+                                            <outlet property="retweetCountLabel" destination="pK3-oX-Ecj" id="h56-xR-kcm"/>
+                                            <outlet property="timeStampLabel" destination="6G2-a4-7aO" id="Rn1-eK-djG"/>
+                                            <outlet property="tweetTextLabel" destination="seX-k0-ROM" id="L9B-3G-ARh"/>
+                                            <outlet property="twitterHandleLabel" destination="fN8-Ax-yqP" id="H9k-oz-i2u"/>
+                                            <outlet property="userNameLabel" destination="hzy-mT-fzr" id="x3y-3C-9gY"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
