@@ -15,15 +15,19 @@ class TweetsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.estimatedRowHeight = 250
+        
         
         TwitterClient.sharedInstance.homeTimeline({ (tweets:[Tweet]) -> () in
             self.tweets = tweets
             for tweet in tweets{
                 print (tweet.text)
+                self.tableView.reloadData()
             }
             }, failure: { (error:NSError) -> () in
                 print(error.localizedDescription)
@@ -31,6 +35,11 @@ class TweetsViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+    
+    
+    
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
