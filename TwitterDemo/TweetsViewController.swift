@@ -42,7 +42,11 @@ class TweetsViewController: UIViewController {
         let tweet = tweets[indexPath.row]
         
         cell.tweet = tweet
-    
+        
+        // Profile image
+        cell.profileView.setImageWithURL(tweet.profileImage!)
+        cell.profileView.layer.cornerRadius = 3
+        cell.profileView.clipsToBounds = true
     
     
     
