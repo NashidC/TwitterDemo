@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TweetsViewController: UIViewController {
+class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var tweets: [Tweet]!
     
@@ -65,7 +65,7 @@ class TweetsViewController: UIViewController {
         cell.retweetCountLabel.text = String(tweet.retweetCount)
         
         // Favorite Count
-        cell.likeCountLabel.text = String(tweet.favoritesCount)
+        cell.likeCountLabel.text = String(tweet.favoritescount)
     
     return cell
     }

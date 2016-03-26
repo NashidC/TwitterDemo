@@ -57,11 +57,15 @@ class Tweet: NSObject {
     }
 
     class func tweetsWithArray(dictionaries: [NSDictionary]) ->[Tweet]{
-        var tweets = [Tweet]()   //create an array of tweets (its empty)
+        var tweets = [Tweet]()
         
-        for dictionary in dictionaries {        //iterate through all the dictionaries
-            let tweet = Tweet(dictionary: dictionary)   //create a tweet based on that dictionary
+            //create an array of tweets (its empty)
+            for dictionary in dictionaries {
             
+            //iterate through all the dictionaries
+            let tweet = Tweet(dictionary: dictionary)
+            
+            //create a tweet based on that dictionary
             tweets.append(tweet)    //add tweet to array
         }
         
