@@ -89,13 +89,13 @@
 		402BDE4D1C8416DE00AA9124 /* TwitterDemo */ = {
 			isa = PBXGroup;
 			children = (
+				402BDE521C8416DE00AA9124 /* Main.storyboard */,
 				404ADAD21CA69B78007CBAF2 /* images */,
 				4039AC0E1C8C0B1B00C56833 /* API */,
 				404ADADB1CA69BDC007CBAF2 /* Views */,
 				4039AC0D1C8C0B1400C56833 /* View Controllers */,
 				4039AC0C1C8C0B0300C56833 /* Models */,
 				402BDE4E1C8416DE00AA9124 /* AppDelegate.swift */,
-				402BDE521C8416DE00AA9124 /* Main.storyboard */,
 				402BDE551C8416DE00AA9124 /* Assets.xcassets */,
 				402BDE571C8416DE00AA9124 /* LaunchScreen.storyboard */,
 				402BDE5A1C8416DE00AA9124 /* Info.plist */,
