@@ -67,7 +67,8 @@ class TweetsViewController: UIViewController {
         // Favorite Count
         cell.likeCountLabel.text = String(tweet.favoritesCount)
     
-    
+    return cell
+    }
     
 
     override func didReceiveMemoryWarning() {
