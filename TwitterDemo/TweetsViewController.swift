@@ -37,6 +37,12 @@ class TweetsViewController: UIViewController {
     }
     
     
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("TweetCell", forIndexPath: indexPath) as! TweetCell
+        let tweet = tweets[indexPath.row]
+        
+        cell.tweet = tweet
+    
     
     
     
