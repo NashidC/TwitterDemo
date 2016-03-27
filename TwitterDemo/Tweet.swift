@@ -31,9 +31,7 @@ class Tweet: NSObject {
         favoritescount = (dictionary["favorites_count"] as? Int ?? 0)
         
         let timestampString = dictionary["created_at"] as? String
-        
-        
-        
+       
         
         if let timestampString = timestampString {
             let formatter = NSDateFormatter()
