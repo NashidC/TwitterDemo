@@ -37,6 +37,15 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let tweets = tweets {
+            return tweets.count
+        } else {
+            return 0
+        }
+    }
+    
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TweetCell", forIndexPath: indexPath) as! TweetCell
         let tweet = tweets[indexPath.row]
@@ -48,23 +57,16 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         cell.profileView.layer.cornerRadius = 3
         cell.profileView.clipsToBounds = true
         
-        // User name
+     
         cell.userNameLabel.text = tweet.userNameLabel
-        
-        // Twitter handle
         cell.twitterHandleLabel.text = "@\(tweet.tweeterHandle)"
         
-        // tweet message (Tweet text)
+  
         cell.tweetTextLabel.text = tweet.text as? String
         cell.tweetTextLabel.sizeToFit()
-        
-        // Time stamp
+  
         cell.timeStampLabel.text = String(tweet.timestamp!)
-        
-        // Retweet Count
         cell.retweetCountLabel.text = String(tweet.retweetCount)
-        
-        // Favorite Count
         cell.likeCountLabel.text = String(tweet.favoritescount)
     
     return cell

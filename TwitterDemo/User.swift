@@ -72,11 +72,8 @@ class User: NSObject {
                 defaults.setObject(user, forKey: "currentUser")
                 
             }
-            
-            
             defaults.synchronize()
         }
-        
     }
 }
     

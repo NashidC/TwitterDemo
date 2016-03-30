@@ -25,14 +25,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let vc = storyboard.instantiateViewControllerWithIdentifier("TweetsNavigationController")
             
             window?.rootViewController = vc
-        }
         
-        NSNotificationCenter.defaultCenter().addObserverForName(User.userDidLogoutNotification, object: nil, queue: NSOperationQueue.mainQueue()) { (NSNotification) -> Void in
+        
+        NSNotificationCenter.defaultCenter().addObserverForName(User.userDidLogoutNotification, object: nil, queue: NSOperationQueue.mainQueue(), usingBlock:  { (NSNotification) -> Void in
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateInitialViewController()
             
             self.window?.rootViewController = vc
             
+        })
+    }else{
+        print("There is no curent user")
+    
         }
         return true
     }
